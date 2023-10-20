@@ -2,7 +2,7 @@
 $severname='localhost';
 $username='secure';
 $db_pass='Sadik@1432';
-$db_name='users';
+$db_name='m_h_n_school';
 $conn= new mysqli($severname,$username,$db_pass,$db_name);
 // $conn=mysqli_connect($severname,$username,$db_pass,$db_name);
 

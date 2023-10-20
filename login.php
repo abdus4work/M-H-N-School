@@ -1,13 +1,12 @@
 <?php 
 require './inc/nav.php' ;
 require __DIR__.'/handler/userReg.php';
-require './config/google_auth_config.php';
 require './config/db_con.php';
 $Error=false;
 if($_SERVER['REQUEST_METHOD']=='POST'){
-  $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+  $userId = htmlspecialchars($_POST['userId']);
   $password = $_POST['password'];
-  checkUser($email,$password);
+  checkUser($userId,$password);
 }
 
 // if(isset($_GET['code'])){
@@ -46,9 +45,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
           <h3>Login</h3>
         </div>
         <div class="form-group">
-          <label for="email">Email address</label>
-          <input type="email" name="email" class="form-control form-control-sm" id="email" aria-describedby="emailHelp" placeholder="Enter email" />
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <label for="userId">User Id</label>
+          <input type="text" name="userId" class="form-control form-control-sm" id="email" aria-describedby="emailHelp" placeholder="Enter email" />
         </div>
         <div class="form-group">
           <label for="password">Password</label>
@@ -61,31 +59,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
           <span>Login</span>
         </button>
       </form>
-      <div id="lgicon">
-        <div class="icon" id="fb">
-          <a href="#"><img src="./image/facebook.svg" alt="" /></a>
-        </div>
-        <div class="icon" id="gg">
-          <a href="<?=$client->createAuthUrl();?>"><img src="./image/google.svg" alt="" /></a>
-        </div>
-        <div class="icon" id="tweet">
-          <a href="#"><img src="./image/twitter.svg" alt="" /></a>
-        </div>
-      </div>
-      <p class="mt-3">
-        Don't have account? <a href="./signup">SignUp here</a>
-      </p>
     </div>
   </div>
   <!-- Optional JavaScript -->
-  <!-- <script>
-    const s_btn = document.querySelectorAll("button");
-    s_btn.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-      });
-    });
-  </script> -->
   <!-- <script src="./script.js"></script> -->
   <!-- Font Awesome Js-->
   <script src="https://kit.fontawesome.com/0929ec8fe1.js" crossorigin="anonymous"></script>

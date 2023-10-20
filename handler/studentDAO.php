@@ -2,7 +2,7 @@
 $server="localhost";
 $user='secure';
 $db_pass='Sadik@1432';
-$db_name='users';
+$db_name='m_h_n_school';
 
 $sconn=new mysqli($server,$user,$db_pass,$db_name);
 if($sconn->connect_error){
@@ -38,4 +38,19 @@ function updateStudent($id,$roll,$fname,$mname,$lname,$addr,$gname,$gmob,$class,
     $stmt->bind_param("isssssissii",$roll,$fname,$mname,$lname,$addr,$gname,$gmob,$class,$sec,$pin,$id);
     $stmt->execute();
     return $sconn->affected_rows;
+}
+
+function getMarks($roll,$class,$sec){
+    global $sconn;
+    $sql="SELECT * FROM marks WHERE roll=? and class=? and sec=?";
+    $stmt=$sconn->prepare($sql);
+    $stmt->bind_param("iss",$roll,$class,$sec);
+    $stmt->execute();
+    $result=$stmt->get_result();
+    $rows=array();
+    while ($row=$result->fetch_assoc()) {
+        $rows[] = $row;
+        
+    }
+    return $rows;
 }

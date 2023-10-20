@@ -33,7 +33,9 @@ font-weight: bold;
 	display: flex;
 	flex-direction: column;
 }
-
+.fnt{
+	font-size: 25px;
+}
 .textarea-group label,
 .form-group label {
 	color: #374151;
@@ -193,7 +195,6 @@ font-weight: bold;
 hr{
 	border-top: 2px solid black !important;
 }
-
 .icon{
 	font-size: 1.2rem;
 	padding-right: 4px;

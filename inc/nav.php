@@ -28,7 +28,7 @@
         <header>
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><img height="48px" src="./image/authentication.svg" alt="">BeSecure</a>
+                    <a class="navbar-brand" href="#"><img height="48px" src="./image/authentication.svg" alt="">MHN School</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -41,15 +41,8 @@
                         }else{
                          echo '<li class="nav-item">
                                 <a class="nav-link" href="./login">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./signup">Sign Up</a>
                             </li>';}
                         echo '</ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="text" placeholder="Search">
-                            <button class="btn btn-primary" type="button">Search</button>
-                        </form>
                     </div>
                 </div>
             </nav>

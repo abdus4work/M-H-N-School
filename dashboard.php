@@ -3,7 +3,9 @@ require './inc/nav.php';
 require './config/db_con.php';
 if (!isset($_SESSION['isLogged'])) {
     header("Location: ./login");
-} ?>
+} 
+
+?>
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
@@ -33,6 +35,10 @@ if (!isset($_SESSION['isLogged'])) {
                     <li>
                         <a href="?student=edit" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-pencil-square"></i> <span class="ms-1 d-none d-sm-inline">Edit Student</span> </a>
+                    </li>
+                    <li>
+                        <a href="?student=show" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-pencil-square"></i> <span class="ms-1 d-none d-sm-inline">Show Student</span> </a>
                             <hr>
                     </li>
                 <div class="dropdown pb-4 text-dark">
@@ -69,6 +75,9 @@ if (isset($_GET['student']) && $_GET['student'] == 'add')
 else if (isset($_GET['student']) && $_GET['student']=='edit'){
     require __DIR__.'/handler/editStudent.php';
 }
+elseif((isset($_GET['student'])) && $_GET['student']=='show'){
+    require __DIR__.'/handler/showStudent.php';
+};
 ?>
         </div>
     </div>
